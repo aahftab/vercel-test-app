@@ -1,0 +1,35 @@
+<%- include('./partials/header') %>
+
+<main class="main">
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">username</th>
+          <th scope="col">School</th>
+          <th scope="col">Basic</th>
+          <th scope="col">Easy</th>
+          <th scope="col">Medium</th>
+          <th scope="col">Hard</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <% for(const name in users) { %>
+          <tr>
+            <% const object = users[name] %>
+               <th><%= `${name}` %></th>
+            <% for (const key in object) { %>
+            <%  if (Object.hasOwnProperty.call(object, key)) { %>
+            <%    const element = object[key]; %>
+                  <td><%= `${element["count"]}` %></td>
+            <%  } %>
+            <% } %>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<%- include('./partials/footer') %>
